@@ -1,0 +1,60 @@
+<?php 
+include "koneksi.php"; // sambungkan ke database 
+// ambil semua data dari tabel wisata 
+$query = "SELECT * FROM wisata"; 
+$result = mysqli_query($conn, $query); 
+?>
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Data Wisata</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 50px; 
+        } 
+        table { 
+            border-collapse: collapse; 
+            width: 60%; 
+            margin-top: 20px; 
+        } 
+        th, td { 
+            border: 1px solid black; 
+            padding: 8px; 
+            text-align: center; 
+        } 
+        th { 
+            background-color: #d3d3d3; 
+        } 
+        caption { 
+            background-color: yellow; 
+            font-weight: bold; 
+            padding: 10px; 
+            caption-side: top; 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<table> 
+    <caption>Latihan (2.A.2): Hasil decode data JSON</caption> 
+    <tr> 
+        <th>KOTA</th> 
+        <th>LANDMARK</th> 
+        <th>TARIF</th> 
+    </tr> 
+ 
+    <?php 
+    // tampilkan data satu per satu 
+    while ($row = mysqli_fetch_assoc($result)) { 
+        echo "<tr>"; 
+        echo "<td>" . $row['kota'] . "</td>"; 
+        echo "<td>" . $row['Landmark'] . "</td>"; 
+        echo "<td>" . $row['tarif'] . "</td>"; 
+        echo "</tr>"; 
+    } 
+    ?> 
+ 
+</table> 
+</body> 
+</html>
