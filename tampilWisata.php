@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>DAFTAR TEMPAT WISATA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: 30px auto;
+    }
+
+    th, td {
+      border: 1px solid #000;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #d3d3d3; /* abu-abu muda */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>DAFTAR TEMPAT WISATA</h2>
+
+  <table id="tabelData">
+    <thead>
+      <tr>
+        <th>KOTA</th>
+        <th>LANDMARK</th>
+        <th>TARIF</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Simulasi data JSON langsung di script
+    const dataWisata = [
+      { "kota": "SEMARANG", "landmark": "LAWANG SEWU", "tarif": "20000" },
+      { "kota": "YOGYAKARTA", "landmark": "PRAMBANAN", "tarif": "35000" },
+      { "kota": "MAGELANG", "landmark": "BOROBUDUR", "tarif": "45000" },
+      { "kota": "SURAKARTA", "landmark": "PGS", "tarif": "GRATIS" }
+    ];
+
+    const tbody = document.querySelector("#tabelData tbody");
+
+    dataWisata.forEach(item => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${item.kota}</td>
+        <td>${item.landmark}</td>
+        <td>${item.tarif}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
